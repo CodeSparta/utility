@@ -25,7 +25,7 @@ podman exec -d -w /mirror utility curl https://mirror.openshift.com/pub/openshif
 
 #check for oc-mirror download to finish
 echo "Waiting for oc-mirror to download"
-while [ ! -f oc-mirror.tar.gz ] ; do sleep 5 ; done
+while [ ! -f oc-mirror.tar.gz ] ; do sleep 10 ; done
 
 #Extract oc-mirror.tar.gz to be able to execute oc-mirror in utility container
 podman exec -d -w /mirror utility tar xvfz oc-mirror.tar.gz --directory /tmp
