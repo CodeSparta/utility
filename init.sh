@@ -14,7 +14,7 @@ while [[ 1 ]] ; do
     fi
 
 done
-echo $VERSION
+
 #Run the utility container from the utility image pulled from git
 podman run --name utility -d -it -v ${PWD}:/mirror:Z -v ${HOME}/.docker:/root/.docker:Z localhost/utility:latest
 sleep 1
