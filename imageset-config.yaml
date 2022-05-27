@@ -1,0 +1,20 @@
+apiVersion: mirror.openshift.io/v1alpha1
+kind: ImageSetConfiguration
+storageConfig:
+  local:
+    path: /home/user/metadata
+mirror:
+  operators:
+    - catalog: registry.redhat.io/redhat/redhat-operator-index:v4.10
+      headsOnly: false
+      packages:
+# Uncomment out below to specify operators to be mirrored
+        - name: local-storage-operator
+          channels:
+          - name: latest
+#        - name: local-storage-operator
+#          channels:
+#          - name: latest
+#        - name: local-storage-operator
+#          channels:
+#          - name: latest
