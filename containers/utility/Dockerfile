@@ -55,9 +55,9 @@ RUN set -ex \
   && wget ${OCP_LIST}
 
 RUN set -ex \
-  && unzip openshift-install-linux.tar.gz -d /usr/local/bin \
-  && unzip openshift-client-linux.tar.gz -d /usr/local/bin \
-  && unzip oc-mirror.tar.gz -d /usr/local/bin \
+  && tar xvf openshift-install-linux.tar.gz -C /usr/local/bin \
+  && tar xvf openshift-client-linux.tar.gz -C /usr/local/bin \
+  && tar xvf oc-mirror.tar.gz -C /usr/local/bin \
   && chmod +x /usr/local/bin/ \
   && echo
 
