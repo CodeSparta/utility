@@ -42,11 +42,6 @@ ARG DNF_FLAGS="\
 RUN set -ex                                                                     \
      && dnf install ${DNF_FLAGS} ${DNF_LIST}                                    \
      && dnf clean all                                                           \
-     && rm -rf                                                                  \
-          /root/*                                                               \
-          /var/cache/*                                                          \
-          /var/log/dnf*                                                         \
-          /var/log/yum*                                                         \
     && echo
 
 # PIP install packages
