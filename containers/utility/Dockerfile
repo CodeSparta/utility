@@ -2,16 +2,28 @@ FROM registry.access.redhat.com/ubi8/ubi:latest
 
 USER 0
 
-# Package List
+# DNF Package List
 ARG DNF_LIST="\
   vim \
   file \
   wget \
   tree \
   openssh-server \
-  ansible-core \
   python38 \
-  rhel-system-roles \
+"
+
+#Ansible pip packages
+ARG PIP_LIST="\
+  k8s \
+  boto \
+  boto3 \
+  awscli \
+  passlib \
+  ansible \
+  botocore \
+  openshift \
+  github3.py \
+  kubernetes \
 "
 
 ARG OCP_LIST="\
@@ -37,6 +49,12 @@ RUN set -ex                                                                     
           /var/cache/*                                                          \
           /var/log/dnf*                                                         \
           /var/log/yum*                                                         \
+    && echo
+
+# PIP install packages
+RUN set -ex                                                                     \
+     && python3 -m pip install --upgrade pip                                    \
+     && pip3 install --upgrade ${PIP_LIST}                                      \
     && echo
 
 # Copy over OpenShift modules
