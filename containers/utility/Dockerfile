@@ -50,14 +50,15 @@ RUN set -ex                                                                     
     && echo
 
 # Copy over OpenShift modules
-ARG TMP_DIR = /tmp
-RUN wget ${OCP_LIST} -P ${TMP_DIR}
-RUN unzip ${TMP_DIR}/openshift-install-linux.tar.gz && cp openshift-install /usr/local/bin \
-  && unzip ${TMP_DIR}/openshift-client-linux.tar.gz && cp oc /usr/local/bin \
-  && unzip ${TMP_DIR}/oc-mirror.tar.gz && cp oc-mirror /usr/local/bin \
-  && chmod +x /usr/local/bin/
+RUN set -ex \
+  && wget ${OCP_LIST}
 
-RUN rm -rf ${TMP_DIR}/*
+RUN set -ex \
+  && unzip openshift-install-linux.tar.gz -d /usr/local/bin \
+  && unzip openshift-client-linux.tar.gz -d /usr/local/bin \
+  && unzip oc-mirror.tar.gz -d /usr/local/bin \
+  && chmod +x /usr/local/bin/ \
+  && echo
 
 ENTRYPOINT ["/bin/sh"]
 WORKDIR /root/utility
