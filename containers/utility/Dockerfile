@@ -20,7 +20,6 @@ ARG PIP_LIST="\
   passlib \
   ansible \
   botocore \
-  openshift \
   github3.py \
   kubernetes \
 "
@@ -46,6 +45,7 @@ RUN set -ex                                                                     
 
 # PIP install packages
 RUN set -ex                                                                     \
+     && python3 -m pip install --upgrade pip                                    \
      && pip3 install --upgrade ${PIP_LIST}                                      \
     && echo
 
