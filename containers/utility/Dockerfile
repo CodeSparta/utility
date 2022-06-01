@@ -54,11 +54,15 @@ RUN set -ex                                                                     
 RUN set -ex \
   && wget ${OCP_LIST}
 
+
 RUN set -ex \
   && tar xvf openshift-install-linux.tar.gz -C /usr/local/bin \
   && tar xvf openshift-client-linux.tar.gz -C /usr/local/bin \
   && tar xvf oc-mirror.tar.gz -C /usr/local/bin \
-  && chmod +x /usr/local/bin/ \
   && echo
 
+RUN set -ex \
+  && chmod -R +x /usr/local/bin \
+ && echo
+ 
 WORKDIR /root/utility
