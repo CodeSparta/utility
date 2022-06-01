@@ -8,7 +8,7 @@ ARG DNF_LIST="\
   file \
   wget \
   openssh-server \
-  python38 \
+  python3 \
 "
 
 #Ansible pip packages
