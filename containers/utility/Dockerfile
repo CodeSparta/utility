@@ -50,7 +50,7 @@ RUN set -ex                                                                     
     && echo
 
 # Copy over OpenShift modules
-ENV TMP_DIR = /tmp
+ARG TMP_DIR = /tmp
 RUN wget ${OCP_LIST} -P ${TMP_DIR}
 RUN unzip ${TMP_DIR}/openshift-install-linux.tar.gz && cp openshift-install /usr/local/bin \
   && unzip ${TMP_DIR}/openshift-client-linux.tar.gz && cp oc /usr/local/bin \
