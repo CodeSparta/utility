@@ -41,7 +41,6 @@ ARG DNF_FLAGS="\
 # DNF Update & Install Packages
 RUN set -ex                                                                     \
      && dnf install ${DNF_FLAGS} ${DNF_LIST}                                    \
-     && ln /usr/bin/vim /usr/bin/vi                                             \
      && dnf clean all                                                           \
      && rm -rf                                                                  \
           /root/*                                                               \
