@@ -8,6 +8,7 @@ ARG DNF_LIST="\
   file \
   wget \
   openssh-server \
+  zip \
   python3 \
 "
 
