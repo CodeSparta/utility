@@ -7,7 +7,6 @@ ARG DNF_LIST="\
   vim \
   file \
   wget \
-  tree \
   openssh-server \
   python38 \
 "
