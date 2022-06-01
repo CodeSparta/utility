@@ -62,4 +62,3 @@ RUN set -ex \
   && echo
 
 WORKDIR /root/utility
-CMD ["/bin/sh"]
