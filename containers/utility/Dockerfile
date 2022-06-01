@@ -61,5 +61,5 @@ RUN set -ex \
   && chmod +x /usr/local/bin/ \
   && echo
 
-ENTRYPOINT ["/bin/sh"]
 WORKDIR /root/utility
+CMD ["/bin/sh"]
