@@ -6,7 +6,6 @@ USER 0
 ARG DNF_LIST="\
   vim \
   file \
-  tmux \
   wget \
   openssh-server \
   zip \
@@ -31,11 +30,6 @@ ARG OCP_LIST="\
   https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest/openshift-client-linux.tar.gz \
   https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest/oc-mirror.tar.gz \
 "
-#################################################################################
-# Entrypoint
-COPY ./bin/connect         /bin/
-COPY ./bin/entrypoint      /bin/
-
 
 #################################################################################
 # DNF Install Packages
@@ -77,4 +71,3 @@ RUN set -ex \
 # Finalize
 RUN mkdir -p /root/.docker
 WORKDIR /root/utility
-ENTRYPOINT ["/bin/entrypoint"]
