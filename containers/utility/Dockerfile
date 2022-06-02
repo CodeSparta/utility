@@ -64,5 +64,6 @@ RUN set -ex \
 RUN set -ex \
   && chmod -R +x /usr/local/bin \
  && echo
- 
+
+RUN mkdir -p /root/.docker  
 WORKDIR /root/utility
