@@ -5,7 +5,7 @@ read -sp "Enter quay pull secret: "
 echo "$REPLY" > $HOME/.docker/config.json
 
 #Run oc-mirror inside the container
-podman exec -d -w /mirror utility  oc-mirror --config=./imageset-config.yaml file://output
+podman exec -d utility  oc-mirror --config=./imageset-config.yaml file://output
 #Check for output file
 sleep 1
 if test -e ./output ; then echo "Download in progress" ; else echo "oc-mirror failed" ; fi
