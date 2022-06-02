@@ -1,6 +1,5 @@
 #!/bin/bash
 
-mkdir -pv $HOME/.docker
 read -sp "Enter quay pull secret: "
 echo "$REPLY" > $HOME/.docker/config.json
 
@@ -14,6 +13,6 @@ while [ ! -f ./output/mirror_seq* ] ; do echo "Waiting for oc-mirror to finish" 
 
 #Tar up files to move to high side
 echo "Archiving files to be moved"
-tar cvzf ./output/mirror_seq*
+cp ./output/mirror_seq* ocp-images.tar
 if test -e ocp-images.tar ; then echo "Archive successful" ; else echo "Archive failed" ; fi
-echo "Now transfer move.tar to high side"
+echo "Now transfer ocp-images.tar to high side"
