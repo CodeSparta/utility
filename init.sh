@@ -14,6 +14,6 @@ while [ ! -f ./output/mirror_seq* ] ; do echo "Waiting for oc-mirror to finish" 
 
 #Tar up files to move to high side
 echo "Archiving files to be moved"
-tar cvzf move.tar oc-mirror.tar.gz openshift-client-linux.tar.gz openshift-install-linux.tar.gz ./output/mirror_seq*
+tar cvzf ./output/mirror_seq*
 if test -e move.tar ; then echo "Archive successful" ; else echo "Archive failed" ; fi
 echo "Now transfer move.tar to high side"
