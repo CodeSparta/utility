@@ -1,7 +1,7 @@
 FROM registry.access.redhat.com/ubi8/ubi:latest
 
 USER 0
-
+#################################################################################
 # DNF Package List
 ARG DNF_LIST="\
   vim \
@@ -31,6 +31,7 @@ ARG OCP_LIST="\
   https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest/oc-mirror.tar.gz \
 "
 
+#################################################################################
 # DNF Install Packages
 ARG DNF_FLAGS="\
   -y \
@@ -50,6 +51,7 @@ RUN set -ex                                                                     
      && pip3 install --upgrade ${PIP_LIST}                                      \
     && echo
 
+#################################################################################
 # Copy over OpenShift modules
 RUN set -ex \
   && wget ${OCP_LIST}
@@ -64,5 +66,8 @@ RUN set -ex \
 RUN set -ex \
   && chmod -R +x /usr/local/bin \
  && echo
- 
+
+#################################################################################
+# Finalize
+RUN mkdir -p /root/.docker
 WORKDIR /root/utility
