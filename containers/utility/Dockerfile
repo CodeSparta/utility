@@ -33,7 +33,6 @@ ARG OCP_LIST="\
 "
 #################################################################################
 # Entrypoint
-COPY --from=entrypoint /root/utility /bin/utility
 COPY ./bin/connect         /bin/
 COPY ./bin/entrypoint      /bin/
 
