@@ -1,11 +1,12 @@
 FROM registry.access.redhat.com/ubi8/ubi:latest
 
 USER 0
-
+#################################################################################
 # DNF Package List
 ARG DNF_LIST="\
   vim \
   file \
+  tmux \
   wget \
   openssh-server \
   zip \
@@ -30,7 +31,14 @@ ARG OCP_LIST="\
   https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest/openshift-client-linux.tar.gz \
   https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest/oc-mirror.tar.gz \
 "
+#################################################################################
+# Entrypoint
+COPY --from=entrypoint /root/utility /bin/utility
+COPY ./bin/connect         /bin/
+COPY ./bin/entrypoint      /bin/
 
+
+#################################################################################
 # DNF Install Packages
 ARG DNF_FLAGS="\
   -y \
@@ -50,6 +58,7 @@ RUN set -ex                                                                     
      && pip3 install --upgrade ${PIP_LIST}                                      \
     && echo
 
+#################################################################################
 # Copy over OpenShift modules
 RUN set -ex \
   && wget ${OCP_LIST}
@@ -65,5 +74,8 @@ RUN set -ex \
   && chmod -R +x /usr/local/bin \
  && echo
 
-RUN mkdir -p /root/.docker  
+#################################################################################
+# Finalize
+RUN mkdir -p /root/.docker
 WORKDIR /root/utility
+ENTRYPOINT ["/bin/entrypoint"]

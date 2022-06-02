@@ -1,0 +1,24 @@
+#!/bin/bash
+run_tmux_start () {
+# Start tmux session
+/usr/bin/tmux new -s Konductor -d
+echo "Started utility tmux session: $(tmux list-sessions)"
+}
+
+run_tmux_keepalive () {
+# loop to monitor for the utility session
+while true
+  do
+    if [[ "$(tmux list-sessions | awk -F'[: ]' '/utility/{print $1}')" != "utility" ]]; then
+      /usr/bin/tmux new -s utility -d
+      echo "Restarted utility tmux session due to missing pid: $(tmux list-sessions)"
+    fi
+    sleep 5
+  done
+}
+
+run () {
+export PATH="$PATH:/root/utility/bin"
+run_tmux_start 2>&1 1>/dev/null
+run_tmux_keepalive 2>&1 1>/dev/null
+}
