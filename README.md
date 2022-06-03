@@ -1,4 +1,4 @@
-# oc-mirror
+# OpenShift Disconnected Utility
 
 Download your registry.redhat.io pull secret from the Red Hat OpenShift Cluster Manager.
 https://console.redhat.com/openshift/install/pull-secret
