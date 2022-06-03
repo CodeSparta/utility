@@ -15,5 +15,5 @@
         dest: /root/utility/tar-bundles
       loop: "{{ packages }}"
 
-     - name: Pull Sparta ansible roles
-       shell: ansible-galaxy install -r /root/utility/roles/utility-bundle/requirements.yml -p /root/utility/ansible-roles
+    - name: Pull Sparta ansible roles
+      shell: ansible-galaxy install -r /root/utility/roles/utility-bundle/requirements.yml -p /root/utility/ansible-roles
