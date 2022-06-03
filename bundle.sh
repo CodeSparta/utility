@@ -1,6 +1,6 @@
 #!/bin/bash
 
-podman save -o ${HOME}/tar-bundles/utility.tar localhost/utility:latest
+podman save -o ${HOME}/utility/tar-bundles/utility.tar localhost/utility:latest
 
 podman exec -d utility  oc-mirror ansible-playbook /root/utility/roles/utility-bundle/site.yaml
 
