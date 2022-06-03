@@ -1,5 +1,7 @@
 ---
 - name: registry
   src: https://github.com/CodeSparta/registry.git
+  scm: git
 - name: ocp-install-build-config
   src: https://github.com/CodeSparta/ocp-install-build-config.git
+  scm: git
