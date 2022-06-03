@@ -1,0 +1,19 @@
+---
+- name: Create utility bundle
+  hosts: localhost
+  connection: local
+  vars:
+    packages:
+      - https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-install-linux.tar.gz
+      - https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest/openshift-client-linux.tar.gz
+      - https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest/oc-mirror.tar.gz
+      - https://mirror.openshift.com/pub/openshift-v4/clients/mirror-registry/latest/mirror-registry.tar.gz
+  tasks:
+    - name: Pull OCP tools
+      get_url:
+        url: "{{ item }}"
+        dest: /root/utility/tar-bundles
+      loop: "{{ packages }}"
+
+     - name: Pull Sparta ansible roles
+       shell: ansible-galaxy install -r /root/utility/roles/utility-bundle/requirements.yml -p /root/utility/ansible-roles

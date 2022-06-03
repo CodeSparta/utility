@@ -1,0 +1,5 @@
+---
+- name: registry
+  src: https://github.com/CodeSparta/registry.git
+- name: ocp-install-build-config
+  src: https://github.com/CodeSparta/ocp-install-build-config.git
