@@ -10,6 +10,7 @@ ARG DNF_LIST="\
   openssh-server \
   zip \
   python3 \
+  git \
 "
 
 #Ansible pip packages
@@ -29,7 +30,6 @@ ARG OCP_LIST="\
   https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-install-linux.tar.gz \
   https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest/openshift-client-linux.tar.gz \
   https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest/oc-mirror.tar.gz \
-  https://mirror.openshift.com/pub/openshift-v4/clients/mirror-registry/latest/mirror-registry.tar.gz \
 "
 
 #################################################################################
