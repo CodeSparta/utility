@@ -10,6 +10,7 @@ ARG DNF_LIST="\
   openssh-server \
   zip \
   python3 \
+  git \
 "
 
 #Ansible pip packages
