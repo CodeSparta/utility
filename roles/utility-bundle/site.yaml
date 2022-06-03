@@ -8,7 +8,7 @@
       - https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest/openshift-client-linux.tar.gz
       - https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest/oc-mirror.tar.gz
       - https://mirror.openshift.com/pub/openshift-v4/clients/mirror-registry/latest/mirror-registry.tar.gz
-    ansible-roles:
+    git:
       - https://github.com/CodeSparta/registry.git
       - https://github.com/CodeSparta/ocp-install-build-config.git
   tasks:
@@ -22,4 +22,4 @@
       ansible.builtin.git:
         repo: "{{ item }}"
         dest: /root/utility/ansible-roles
-      loop: "{{ ansible-roles }}"
+      loop: "{{ git }}"
