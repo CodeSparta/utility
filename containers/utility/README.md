@@ -10,6 +10,7 @@ The build container is meant to run with the latest Openshift packages and lates
   - OC command line
   - kubectl
   - oc-mirror
+  - mirror-registry
   - awscli
 
 ## Build conatiner
