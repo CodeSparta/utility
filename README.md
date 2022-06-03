@@ -20,6 +20,9 @@ bash utility-start.sh
 
 # The init will prompt the user for the quay pull secret and then run the oc-mirror based on the imageset-config.yaml
 bash init.sh
+
+#The bundle script will compile the utility conatainer along with the Sparta ansible roles and OCP utilities(oc, openshift-installer, oc-mirror & mirror registry) into a single tar file located at the tar-bundles directory
+bash bundle.sh
 ```
 
 When the init.sh script is finished it generates a ocp-images.tar with the images from the specified image set.
