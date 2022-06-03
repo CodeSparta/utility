@@ -19,7 +19,7 @@
       loop: "{{ packages }}"
 
     - name: Pull ansible roles
-      get_url:
-        url: "{{ item }}"
+      ansible.builtin.git:
+        repo: "{{ item }}"
         dest: /root/utility/ansible-roles
       loop: "{{ ansible-roles }}"
