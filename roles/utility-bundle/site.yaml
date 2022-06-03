@@ -8,9 +8,6 @@
       - https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest/openshift-client-linux.tar.gz
       - https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest/oc-mirror.tar.gz
       - https://mirror.openshift.com/pub/openshift-v4/clients/mirror-registry/latest/mirror-registry.tar.gz
-    git:
-      - https://github.com/CodeSparta/registry.git
-      - https://github.com/CodeSparta/ocp-install-build-config.git
   tasks:
     - name: Pull OCP tools
       get_url:
@@ -20,12 +17,12 @@
 
     - name: Registry
       git:
-        repo: "{{ item[0] }}"
+        repo: https://github.com/CodeSparta/registry.git
         dest: /root/utility/ansible-roles/registry
       loop: "{{ git }}"
 
     - name: Install config
       git:
-        repo: "{{ item[0] }}"
+        repo: https://github.com/CodeSparta/ocp-install-build-config.git
         dest: /root/utility/ansible-roles/ocp-install-build-config
       loop: "{{ git }}"
