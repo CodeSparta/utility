@@ -18,8 +18,14 @@
         dest: /root/utility/tar-bundles
       loop: "{{ packages }}"
 
-    - name: Pull ansible roles
-      ansible.builtin.git:
-        repo: "{{ item }}"
-        dest: /root/utility/ansible-roles
+    - name: Registry
+      git:
+        repo: "{{ item[0] }}"
+        dest: /root/utility/ansible-roles/registry
+      loop: "{{ git }}"
+
+    - name: Install config
+      git:
+        repo: "{{ item[0] }}"
+        dest: /root/utility/ansible-roles/ocp-install-build-config
       loop: "{{ git }}"
