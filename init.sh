@@ -18,5 +18,4 @@ while [ ! -f ./output/mirror_seq* ] ; do echo "Waiting for oc-mirror to finish" 
 echo "Archiving files to be moved"
 cp ./output/mirror_seq* ocp-images.tar
 if test -e ocp-images.tar ; then echo "Archive successful" ; else echo "Archive failed" ; fi
-mv ocp-images.tar tar-bundles 
 echo "Now transfer ocp-images.tar to high side"
