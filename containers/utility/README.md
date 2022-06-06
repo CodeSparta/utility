@@ -2,7 +2,7 @@
 The utility container exists to deploy out the following containerized services in a disconnected environment by utilizing podman.
 
 ## Customizable
-The build container is meant to run with the latest Openshift packages and latest ansible core versions. To modify Openshift version packages you modify the ARG OCP_LIST in the Dockerfile to point to your specific mirror tar.gz files.
+The build container is meant to run with the latest OpenShift packages and latest ansible core versions. To modify OpenShift version packages you modify the ARG OCP_LIST in the Dockerfile to point to your specific mirror tar.gz files.
 
 ### Services   
   - Ansible
@@ -14,11 +14,11 @@ The build container is meant to run with the latest Openshift packages and lates
   - awscli
 
 ## Build conatiner
-On a internet connected box to build the container.
+On an internet connected box to build the container.
 
 ```
 git clone https://github.com/CodeSparta/Utility
-cd utility/containers/utility
+cd Utility/containers/utility
 podman build -t utility .
 ```
 
