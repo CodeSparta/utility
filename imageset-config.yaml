@@ -1,14 +1,13 @@
 apiVersion: mirror.openshift.io/v1alpha1
 kind: ImageSetConfiguration
 mirror:
-  operators:
-    - catalog: registry.redhat.io/redhat/redhat-operator-index:v4.10
-      headsOnly: false
-      packages:
+  ocp:
+    channels:
+      - name: stable-4.10
 # Uncomment out below to specify operators to be mirrored
-        - name: local-storage-operator
-          channels:
-          - name: latest
+#        - name: local-storage-operator
+#          channels:
+#          - name: latest
 #        - name: local-storage-operator
 #          channels:
 #          - name: latest
