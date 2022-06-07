@@ -28,4 +28,4 @@
     - name: Sparta2
       git:
         repo: https://github.com/CodeSparta/sparta2.git
-        dest: /root/utility/ansible-roles/sparta2
+        dest: /root/utility/sparta2
