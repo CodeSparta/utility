@@ -24,3 +24,8 @@
       git:
         repo: https://github.com/CodeSparta/ocp-install-build-config.git
         dest: /root/utility/ansible-roles/ocp-install-build-config
+
+    - name: Sparta2
+      git:
+        repo: https://github.com/CodeSparta/sparta2.git
+        dest: /root/utility/ansible-roles/sparta2
