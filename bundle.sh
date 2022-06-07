@@ -23,3 +23,5 @@ $HOME/utility/tar-bundles/mirror-registry.tar.gz \
 $HOME/utility/tar-bundles/openshift-client-linux.tar.gz \
 $HOME/utility/tar-bundles/openshift-install-linux.tar.gz \
 $HOME/utility/tar-bundles/openshift-baremetal-install
+
+echo "Now transfer sparta-utility.tar.gz to high side"
