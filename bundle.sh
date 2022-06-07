@@ -6,6 +6,7 @@ podman exec utility ansible-playbook /root/utility/roles/utility-bundle/site.yam
 
 tar -czf tar-bundles/sparta-utility.tar.gz \
 ansible-roles \
+sparta2 \ 
 tar-bundles/utility.tar \
 tar-bundles/mirror-registry.tar.gz \
 tar-bundles/openshift-client-linux.tar.gz \
