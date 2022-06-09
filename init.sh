@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#Check for config.json
+if [[ ! -f  $HOME/.docker/config.json ]] ; then
+    echo 'File "config.json" is not there, aborting. Please run quay.sh to configure the pull secret'
+    exit
+fi
+
 #Run oc-mirror inside the container
 podman exec -d utility  oc-mirror --config=./imageset-config.yaml file://output
 #Check for output file
