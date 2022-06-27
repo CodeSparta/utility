@@ -7,7 +7,7 @@ https://console.redhat.com/openshift/install/pull-secret
   - Install podman to the localhost
   - If the container has not been built yet go to containers/utilty and build the conatiner with the instructions provided.
 
-## Creating an OCP conatiner image set
+## Creating an OCP container image set
 Modify the imageset-config.yaml file to include what you need for your install. The example below will pull all base images necessary for a first time installation of OpenShift. The user can use the oc-mirror utility to pull key operators when operating in an airgapped environment.
 
 
