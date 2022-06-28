@@ -1,7 +1,4 @@
 #!/bin/bash
-
-mkdir -pv $HOME/.docker
-
 podman run -it -d \
 --name utility \
 --volume ${HOME}/.docker:/root/.docker:z \
