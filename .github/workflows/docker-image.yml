@@ -48,7 +48,7 @@ jobs:
 
     - name: Build utility Image
       id: push-to-quay
-      uses: docker/login-action@v1
+      uses: docker/build-push-action@v2
       with:
         context: ./containers/utility/Dockerfile
         platforms: linux/amd64
