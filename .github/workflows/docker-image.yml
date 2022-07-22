@@ -33,7 +33,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ secrets.ECR_URI }}
         ECR_REPOSITORY: codesparta
-        IMAGE_TAG: utility_image:$(date +%s)
+        IMAGE_TAG: utility_image
       run: |
         docker build --file ./containers/utility/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . 
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG    
