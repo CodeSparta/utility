@@ -50,12 +50,12 @@ jobs:
       id: push-to-quay
       uses: docker/build-push-action@v2.10.0
       with:
-        context: ./containers/utility/Dockerfile
+        context: ../containers/utility/Dockerfile
         platforms: linux/amd64
         pull: true
         push: true
         tags: |
-          quay.io/sparta/utility_image
+          quay.io/sparta/utility_image:latest
 
     - name: Print image url
       run: echo "Image pushed to ${{ steps.push-to-quay.outputs.registry-paths }}"
