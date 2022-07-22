@@ -46,15 +46,25 @@ jobs:
         username: ${{ secrets.QUAY_USER }}
         password: ${{ secrets.QUAY_PASSWORD }}
 
-    - name: Build, tag, and push image to Quay
-      id: push-to-quay
-      env:
-        QUAY_REGISTRY: quay.io
-        QUAY_REPOSITORY: sparta
-        IMAGE_TAG: utility_image
-      run: |
-        docker build --file ./containers/utility/Dockerfile -t $QUAY_REGISTRY/$QUAY_REPOSITORY:$IMAGE_TAG .
-        docker push $QUAY_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+      - name: Build image and push to Docker Hub and GitHub Container Registry
+        uses: docker/build-push-action@v2
+        with:
+          # relative path to the place where source code with Dockerfile is located
+          context: ./containers/utility
+          # Note: tags has to be all lower-case
+          tags: |
+            quay.io/sparta/utility_image:latest
+
+
+#    - name: Build, tag, and push image to Quay
+#      id: push-to-quay
+#      env:
+#        QUAY_REGISTRY: quay.io
+#        QUAY_REPOSITORY: sparta
+#        IMAGE_TAG: utility_image
+#      run: |
+#        docker build --file ./containers/utility/Dockerfile -t $QUAY_REGISTRY/$QUAY_REPOSITORY:$IMAGE_TAG .
+#        docker push $QUAY_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
     - name: Print image url
       run: echo "Image pushed to ${{ steps.push-to-quay.outputs.registry-paths }}"
