@@ -33,10 +33,10 @@ jobs:
       env:
         ECR_REGISTRY: ${{ secrets.ECR_URI }}
         ECR_REPOSITORY: codesparta
-        IMAGE_TAG: utility
+        IMAGE_TAG: utility_image:$(date +%s)
       run: |
-        docker build . --file ./containers/utility/Dockerfile --tag utility:$(date +%s)
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG  
+        docker build --file ./containers/utility/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . 
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG    
 
     - name: Notify
       uses: nobrayner/discord-webhook@v1
