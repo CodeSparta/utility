@@ -1,4 +1,4 @@
-name: Deploy Utility to ECR
+name: Deploy Utility to Quay
 
 on:
 
@@ -50,7 +50,7 @@ jobs:
       id: push-to-quay
       uses: docker/build-push-action@v2.10.0
       with:
-        context: ../containers/utility/Dockerfile
+        context: containers/utility/Dockerfile
         platforms: linux/amd64
         pull: true
         push: true
