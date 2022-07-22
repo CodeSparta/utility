@@ -1,6 +1,7 @@
 name: Deploy Utility to ECR
 
 on:
+
   push:
     branches: [ "main" ]
   pull_request:
@@ -14,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    
     - name: Check out code
     - uses: actions/checkout@v3
     
