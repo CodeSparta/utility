@@ -35,5 +35,5 @@ jobs:
         ECR_REPOSITORY: codesparta
         IMAGE_TAG: utility
       run: |
-        docker build . --file ./containers/utility/Dockerfile --tag my-image-name:$(date +%s
+        docker build . --file ./containers/utility/Dockerfile --tag my-image-name:$(date +%s)
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG  
