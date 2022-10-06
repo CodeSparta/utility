@@ -1,10 +1,21 @@
-apiVersion: mirror.openshift.io/v1alpha1
+apiVersion: mirror.openshift.io/v1alpha2
 kind: ImageSetConfiguration
+archiveSize: 4
 mirror:
-  ocp:
+  platform:
     channels:
-      - name: stable-4.10
-# Uncomment out below to specify operators to be mirrored
+    - name: stable-4.11
+      type: ocp
+    graph: true
+  operators:
+  - catalog: registry.redhat.io/redhat/redhat-operator-index:v4.11
+    packages:
+    - name: odf-operator
+      channels:
+      - name: stable-4.11 
+  additionalImages:
+  - name: registry.access.redhat.com/rhscl/postgresql-10-rhel7:1
+# Add additional operators or additional operators or images as needed
 #        - name: local-storage-operator
 #          channels:
 #          - name: latest
